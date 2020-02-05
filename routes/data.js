@@ -14,6 +14,4 @@ router.get('/data',(req,res)=>{
         }
     })
 })
-
-
 module.exports = router

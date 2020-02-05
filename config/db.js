@@ -1,4 +1,18 @@
-const mysql = require("mysql")
+const Sequelize = require('sequelize')
+
+const sequelize = new Sequelize('apimunicipalidadtest', 'root', 'password', {
+  host: 'localhost',
+  dialect: 'mysql',
+})
+
+sequelize.authenticate()
+  .then(() => {
+    console.log('Conectado')
+  })
+  .catch(err => {
+    console.log('No se conecto')
+  })
+/*const mysql = require("mysql")
 const connection = mysql.createConnection({
     host:"localhost",
     port:"3306",
@@ -15,6 +29,6 @@ connection.connect(function(err){
         console.log('db is connected')
     }
 })
+*/
 
-
-module.exports = connection
+module.exports = sequelize
